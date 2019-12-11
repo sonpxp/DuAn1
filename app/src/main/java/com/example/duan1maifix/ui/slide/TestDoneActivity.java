@@ -19,8 +19,10 @@ import com.example.duan1maifix.ui.question.Question;
 
 import java.util.ArrayList;
 
-public class TestDoneActivity extends AppCompatActivity {
+public class TestDoneActivity extends AppCompatActivity implements ViewTestDone.View {
     ArrayList<Question> arr_QuesBegin = new ArrayList<Question>();
+    PresenterTestDone presenterTestDone;
+
     int numNoAns = 0;
     int numTrue = 0;
     int numFalse = 0;
@@ -38,9 +40,10 @@ public class TestDoneActivity extends AppCompatActivity {
 //        scoreController = new ScoreController(TestDoneActivity.this);
         dbHelper = new DBHelper(TestDoneActivity.this);
         final Intent intent = getIntent();
+        presenterTestDone = new PresenterTestDone(this);
         arr_QuesBegin = (ArrayList<Question>) intent.getExtras().getSerializable("arr_Ques");
         begin();
-        checkResult();
+        presenterTestDone.checkResult(arr_QuesBegin, numNoAns, numTrue, numFalse);
         totalScore = numTrue * 10;
         tvNotAns.setText("" + numNoAns);
         tvFalse.setText("" + numFalse);
@@ -108,7 +111,8 @@ public class TestDoneActivity extends AppCompatActivity {
         btnAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                refresh();
+                presenterTestDone.checkRefresh(arr_QuesBegin);
+
                 finish();
                 Intent intent2 = new Intent(TestDoneActivity.this, ScreenSlideActivity.class);
                 intent2.putExtra("arr_Ques", arr_QuesBegin);
@@ -118,11 +122,11 @@ public class TestDoneActivity extends AppCompatActivity {
         });
     }
 
-    public void refresh() {
-        for (int i = 0; i < arr_QuesBegin.size(); i++) {
-            arr_QuesBegin.get(i).setTraloi("");
-        }
-    }
+//    public void refresh() {
+//        for (int i = 0; i < arr_QuesBegin.size(); i++) {
+//            arr_QuesBegin.get(i).setTraloi("");
+//        }
+//    }
 
     public void begin() {
         tvFalse = (TextView) findViewById(R.id.tvFalse);
@@ -134,15 +138,25 @@ public class TestDoneActivity extends AppCompatActivity {
         btnExit = (Button) findViewById(R.id.btnExit);
     }
 
-    //PT Check kết quả
-    public void checkResult() {
-        for (int i = 0; i < arr_QuesBegin.size(); i++) {
-            if (arr_QuesBegin.get(i).getTraloi().equals("") == true) {
-                numNoAns++;
-            } else if (arr_QuesBegin.get(i).getResult().equals(arr_QuesBegin.get(i).getTraloi()) == true) {
-                numTrue++;
-            } else numFalse++;
-        }
+    @Override
+    public void setRefresh() {
+
     }
+
+    @Override
+    public void setResult() {
+
+    }
+
+    //PT Check kết quả
+//    public void checkResult() {
+//        for (int i = 0; i < arr_QuesBegin.size(); i++) {
+//            if (arr_QuesBegin.get(i).getTraloi().equals("") == true) {
+//                numNoAns++;
+//            } else if (arr_QuesBegin.get(i).getResult().equals(arr_QuesBegin.get(i).getTraloi()) == true) {
+//                numTrue++;
+//            } else numFalse++;
+//        }
+//    }
 }
 

@@ -8,13 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.example.duan1maifix.MainActivity;
 import com.example.duan1maifix.R;
+import com.example.duan1maifix.databinding.FragmentScoreBinding;
 import com.example.duan1maifix.ui.question.DBHelper;
 
 public class ScoreFragment extends Fragment {
+    FragmentScoreBinding binding;
     ListView lvScore;
 //    ScoreController scoreController;
     ScoreAdapter scoreAdapter;
@@ -29,7 +32,9 @@ public class ScoreFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ((MainActivity) getActivity()).getSupportActionBar().setTitle("Danh sách điểm");
-        return inflater.inflate(R.layout.fragment_score, container, false);
+        binding= DataBindingUtil.inflate(inflater,R.layout.fragment_score,container,false);
+//        return inflater.inflate(R.layout.fragment_score, container, false);
+    return binding.getRoot();
     }
 
     @Override
