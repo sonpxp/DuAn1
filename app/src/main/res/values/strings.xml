@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">DuAn1MaiFix</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="home">Home</string>
+    <string name="titlemenu">Đề thi trắc nghiệm</string>
+    <string name="subenglish">Tiếng Anh</string>
+    <string name="about">Giới Thiệu</string>
+    <string name="listscore">Danh Sách Điểm</string>
+    <string name="exit">Thoát</string>
+    <string name="test">Kiểm Tra</string>
+    <string name="re_about">Ứng dụng "Trắc nghiệm tiếng Anh" giúp bạn củng cố kiến thức tiếng Anh đã học, nâng cao kỹ năng ngoại ngữ qua các bài tập từ trình độ sơ cấp đến nâng cao. Số lượng câu hỏi đồ sộ và đánh giá kết quả mỗi bài làm.</string>
+</resources>
